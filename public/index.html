@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NOIRA měří zůstatek lahví pomocí automatického skenu nebo kalibrovaného vážení. Prohlédněte si oba postupy.">
+<title>NOIRA | Skenování lahví a výpočet zůstatku</title>
+<link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Přejít na obsah</a>
+<header class="wrap nav">
+<a class="brand" href="#obsah"><img src="logo.png" alt=""><span>NOIRA<small>STOCK &amp; OPERATIONS</small></span></a>
+<nav aria-label="Hlavní navigace"><a href="#specifikace">Specifikace</a><a href="#inventura">Ukázka skeneru</a><a href="#prehled">Pro koho</a></nav>
+<a class="button outline" href="#ukazka">Domluvit ukázku <span aria-hidden="true">↗</span></a>
+</header>
+<main id="obsah">
+<section class="hero">
+<div class="wrap hero-content">
+<div>
+<p class="eyebrow">Skenování lahví pro barovou inventuru</p>
+<h1>Vyfoťte lahev.<br>Zjistěte, kolik zbývá.</h1>
+<p>Průhlednou lahev změří skener podle hladiny. U neprůhledné lahve vypočítáte zůstatek z váhy a uložené kalibrace.</p>
+<div class="actions"><a class="button gold" href="#inventura">Vyzkoušet skener <span aria-hidden="true">↓</span></a><a class="button glass" href="#ukazka">Domluvit ukázku <span aria-hidden="true">↗</span></a></div>
+</div>
+<figure class="scan-preview">
+<figcaption><span>NOIRA / SKENER</span><small>Ukázkový snímek</small></figcaption>
+<div class="scan-photo"><img src="amundsen.jpg" alt="Snímek lahve o objemu 700 mililitrů v rámečku skeneru"><div class="scan-guides" aria-hidden="true"><span></span></div><span class="scan-level">Rozpoznaná hladina</span></div>
+<div class="scan-result"><span>Orientační zůstatek <small>Lahev 700 ml</small></span><strong>350 ml</strong></div>
+</figure>
+</div>
+</section>
+<section class="tinted" id="inventura">
+<div class="wrap section split">
+<div><p class="eyebrow">Ukázka měření</p><h2>Dvě cesty ke stejnému výsledku.</h2><p>Fotoanalýza určuje hladinu a zkouší rozlišit víčko, nalévátko nebo otevřené hrdlo. Je dostupná po aktivaci a její přesnost na skutečných lahvích zatím není ověřená.</p>
+<div class="switch" role="group" aria-label="Metoda měření"><button type="button" data-method="photo" aria-pressed="true">Průhledná lahev</button><button type="button" data-method="weight" aria-pressed="false">Neprůhledná lahev</button></div></div>
+<div class="product" id="photo-panel">
+<div class="product-header"><span>Skenování hladiny</span><small>Simulace</small></div>
+<div class="product-body"><div class="measure-photo" aria-hidden="true"><img src="amundsen.jpg" alt=""><div class="measure-guides" id="photo-guides" hidden><span></span></div></div><div><h3>Vodka Amundsen</h3><p>Objem lahve · 700 ml</p><p id="photo-output" role="status">Připravený ukázkový snímek.</p></div></div>
+<div class="product-actions"><button class="button primary" id="demo-scan" type="button">Spustit ukázkový sken</button></div>
+</div>
+<div class="product" id="weight-panel" hidden>
+<div class="product-header"><span>Kalibrované vážení</span><small>Ukázkové hodnoty</small></div>
+<form id="demo-weight">
+<div class="weight-body"><p>Lahev 750 ml · prázdná 450 g · plná 1 150 g. Všechny váhy počítají se stejným uzávěrem.</p>
+<label for="gross">Aktuální hmotnost (g)</label><input type="number" id="gross" min="450" max="1150" step="any" value="800" required>
+<label for="portion">Velikost panáku (ml)</label><input type="number" id="portion" min="1" max="750" step="1" value="40" required>
+<output id="weight-output" role="status">375 ml · 9 celých panáků · zbytek 15 ml</output></div>
+<div class="product-actions"><button class="button primary" type="submit">Spočítat zůstatek</button></div></form>
+</div>
+</div>
+</section>
+<section class="wrap section" id="specifikace">
+<div class="section-heading"><div><p class="eyebrow">Specifikace skeneru</p><h2>Od identifikace k inventuře.</h2></div><p>Cílem je automatické měření známých lahví a postupné rozšiřování ověřených profilů.</p></div>
+<div class="steps">
+<article><h3>Automatický optický odečet</h3><p>Skener hledá hladinu a rozlišuje stav hrdla. Pro tvarované lahve potřebuje kalibrační křivku. Nejasný snímek vyžaduje kontrolu.</p></article>
+<article><h3>Opakované vážení</h3><p>Plnou a prázdnou váhu lze uložit ke konkrétní lahvi. Při dalším měření stačí aktuální váha se stejným uzávěrem.</p></article>
+<article><h3>Plánované sdílení profilů</h3><p>Ověřené opravy a kalibrace mají tvořit centrální verzované profily. Fotky a inventury jednotlivých provozů zůstávají soukromé.</p></article>
+</div>
+</section>
+<section id="provoz" class="wrap section">
+<div class="section-heading"><div><p class="eyebrow">Jeden den v baru</p><h2>Od dodávky po inventuru.</h2></div><p>Každý pohyb zásob má v Noire svůj záznam. Tým ví, co přišlo, co se přesunulo a co v lahvích skutečně zůstalo.</p></div>
+<div class="steps">
+<article><p class="eyebrow">Před otevřením</p><h3>Přijměte dodávku</h3><p>Zapište přijaté zboží do skladu a dohledávejte ho v historii dodávek.</p></article>
+<article><p class="eyebrow">Během směny</p><h3>Doplňte zásoby na baru</h3><p>Zaznamenejte přesun lahví ze skladu na bar a mějte přehled, kde jsou.</p></article>
+<article><p class="eyebrow">Po zavření</p><h3>Změřte zůstatky</h3><p>Otevřené lahve zapište ručně nebo použijte vážení s kalibrací pro konkrétní lahev.</p></article>
+</div>
+</section>
+<section class="wrap section split" id="prehled">
+<div><p class="eyebrow">Pro majitele a týmy</p><h2>Přehled pro jeden bar i celou síť.</h2><p>Podívejte se, co vidí tým v jednom baru a co může sledovat majitel několika podniků.</p>
+<div class="switch" role="group" aria-label="Ukázka podle počtu provozů"><button type="button" data-view="single" aria-pressed="true">Jeden bar</button><button type="button" data-view="multi" aria-pressed="false">Více podniků</button></div></div>
+<div class="product" aria-live="polite">
+<div class="product-header"><span id="view-title">Přehled · Hlavní bar</span><small>Ilustrační data</small></div>
+<ul class="view-list" id="view-list"><li><span>Poslední inventura</span><strong>Dnes · 02:15</strong></li><li><span>Sklady</span><strong>Bar a zázemí</strong></li><li><span>Pracovní terminál</span><strong>Přístup přes PIN</strong></li></ul>
+</div>
+</section>
+<section id="ukazka" class="wrap closing">
+<div><p class="eyebrow">Ukázka aplikace</p><h2>Jak by Noira fungovala ve vašem baru?</h2><p>Projděte si inventuru, sklad i přehled provozů podle toho, jak pracuje váš tým.</p></div>
+<a class="button gold" href="mailto:dohnalvojtech@gmail.com?subject=NOIRA%20%E2%80%93%20%C5%BE%C3%A1dost%20o%20uk%C3%A1zku&amp;body=Dobr%C3%BD%20den%2C%20m%C3%A1m%20z%C3%A1jem%20o%20uk%C3%A1zku%20aplikace%20NOIRA%20pro%20n%C3%A1%C5%A1%20provoz.%20M%C5%AF%C5%BEeme%20si%20domluvit%20term%C3%ADn%3F">Domluvit ukázku <span aria-hidden="true">↗</span></a>
+</section>
+</main>
+<footer class="wrap footer"><a class="brand" href="#obsah"><img src="logo.png" alt=""><span>NOIRA<small>STOCK &amp; OPERATIONS</small></span></a><a class="button outline" href="https://noira-u804.onrender.com/">Otevřít aplikaci <span aria-hidden="true">↗</span></a></footer>
+
+</body>
+</html>
