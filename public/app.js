@@ -22,23 +22,3 @@ document.querySelector('#demo-weight').addEventListener('submit', (event) => {
   document.querySelector('#weight-output').textContent =
     `${milliliters} ml · celé panáky: ${servings} · zbytek ${remainder} ml`;
 });
-
-const views = {
-  single: ['Přehled · Hlavní bar', [['Poslední inventura', 'Dnes · 02:15'], ['Sklady', 'Bar a zázemí'], ['Pracovní terminál', 'Přístup přes PIN']]],
-  multi: ['Přehled majitele · Všechny provozy', [['Centrum', 'Poslední inventura dnes'], ['Nábřeží', 'Poslední inventura včera'], ['Přístupy týmu', 'Podle provozu']]]
-};
-const viewButtons = document.querySelectorAll('[data-view]');
-for (const button of viewButtons) button.addEventListener('click', () => {
-  const [title, rows] = views[button.dataset.view];
-  document.querySelector('#view-title').textContent = title;
-  document.querySelector('#view-list').replaceChildren(...rows.map(([label, value]) => {
-    const row = document.createElement('li');
-    const name = document.createElement('span');
-    const detail = document.createElement('strong');
-    name.textContent = label;
-    detail.textContent = value;
-    row.append(name, detail);
-    return row;
-  }));
-  for (const item of viewButtons) item.setAttribute('aria-pressed', item === button);
-});
