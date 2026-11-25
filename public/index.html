@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="NOIRA měří zůstatek lahví pomocí automatického skenu nebo kalibrovaného vážení. Prohlédněte si oba postupy.">
 <title>NOIRA | Skenování lahví a výpočet zůstatku</title>
-<link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+<link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"><script src="app.js?v=photo2" defer></script>
 </head>
 <body>
 <a class="skip" href="#obsah">Přejít na obsah</a>
@@ -20,7 +20,7 @@
 <p class="eyebrow">Skenování lahví pro barovou inventuru</p>
 <h1>Vyfoťte lahev.<br>Zjistěte, kolik zbývá.</h1>
 <p>Průhlednou lahev změří skener podle hladiny. U neprůhledné lahve vypočítáte zůstatek z váhy a uložené kalibrace.</p>
-<div class="actions"><a class="button gold" href="#inventura">Vyzkoušet skener zdarma <span aria-hidden="true">↓</span></a><a class="button glass" href="#tarify">Zobrazit cenu <span aria-hidden="true">↗</span></a></div>
+<div class="actions"><a class="button gold" data-start-scanner href="#inventura">Vyzkoušet skener zdarma <span aria-hidden="true">↓</span></a><a class="button glass" href="#tarify">Zobrazit cenu <span aria-hidden="true">↗</span></a></div>
 </div>
 <figure class="scan-preview">
 <figcaption><span>NOIRA / SKENER</span><small>Ukázkový snímek</small></figcaption>
@@ -31,12 +31,20 @@
 </section>
 <section class="tinted" id="inventura">
 <div class="wrap section split">
-<div><p class="eyebrow">Ukázka měření</p><h2>Dvě cesty ke stejnému výsledku.</h2><p>Fotoanalýza určuje hladinu a zkouší rozlišit víčko, nalévátko nebo otevřené hrdlo. Je dostupná po aktivaci a její přesnost na skutečných lahvích zatím není ověřená.</p>
+<div><p class="eyebrow">Ukázka měření</p><h2>Dvě cesty ke stejnému výsledku.</h2><p>Vyfoťte jednu průhlednou lahev zpříma proti světlému pozadí. Střed lahve umístěte doprostřed snímku tak, aby hladinu nezakrývala etiketa. Odhad podle výšky funguje nejlépe u lahví s rovnými stěnami.</p>
 <div class="switch" role="group" aria-label="Metoda měření"><button type="button" data-method="photo" aria-pressed="true">Průhledná lahev</button><button type="button" data-method="weight" aria-pressed="false">Neprůhledná lahev</button></div></div>
 <div class="product" id="photo-panel">
-<div class="product-header"><span>Skenování hladiny</span><small>Simulace</small></div>
-<div class="product-body"><div class="measure-photo" aria-hidden="true"><img src="amundsen.jpg" alt=""><div class="measure-guides" id="photo-guides" hidden><span></span></div></div><div><h3>Vodka Amundsen</h3><p>Objem lahve · 700 ml</p><p id="photo-output" role="status">Připravený ukázkový snímek.</p></div></div>
-<div class="product-actions"><button class="button primary" id="demo-scan" type="button">Spustit ukázkový sken</button></div>
+<div class="product-header"><span>Skener jedné lahve</span><small>Orientační měření</small></div>
+<div style="padding:1rem">
+<label>Objem plné lahve (ml) <input id="bottle-volume" type="number" min="1" max="30000" value="700" required></label>
+<p>Provozovatel dostane upozornění o použití. Fotku můžeš připojit dobrovolně.</p>
+<label><input id="scan-consent" type="checkbox"> Sdílet fotku lahve s provozovatelem NOIRA na 7 dní.</label>
+<input hidden type="file" accept="image/*" capture="environment" id="bottle-file">
+<p id="photo-output" role="status">Vyfoťte celou lahev včetně dna.</p>
+<canvas hidden id="scan-image" aria-label="Fotografie pro označení plné hladiny a dna" style="max-width:100%;height:auto;cursor:crosshair"></canvas>
+<div id="scan-controls" hidden><label>Upřesnit skutečnou hladinu <input id="scan-level" type="range" min="0" max="100" disabled> <output id="level-label"></output></label></div>
+<p id="scan-status" role="status"></p></div>
+<div class="product-actions"><button class="button primary" id="demo-scan" type="button">Vyfotit lahev</button></div>
 </div>
 <div class="product" id="weight-panel" hidden>
 <div class="product-header"><span>Kalibrované vážení</span><small>Ukázkové hodnoty</small></div>
