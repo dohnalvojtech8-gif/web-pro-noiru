@@ -22,3 +22,20 @@ dialog{width:min(500px,calc(100% - 32px));border:1px solid var(--line);border-ra
 [hidden]{display:none!important}.weight-body{display:grid;gap:9px;padding:19px}.weight-body label{font-weight:700}.weight-body input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:var(--paper)}.weight-body output{font-weight:700;color:var(--green);padding-top:8px}#photo-output{margin-top:10px;font-weight:700;color:var(--green)}
 .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:34px}.plan{padding:clamp(22px,4vw,36px);border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}.plan-primary{background:var(--green);color:var(--paper);border-color:var(--green)}.plan-primary p{color:#e0e7d7}.plan .price{margin:13px 0 6px;font:400 clamp(2.4rem,5.5vw,4rem)/1.05 Georgia,serif;color:inherit}.price small{display:inline-block;font:400 .9rem/1.4 "DM Sans",system-ui,sans-serif}.plan .button{margin-top:22px}.order-note{margin-top:15px;font-size:.9rem}
 @media(max-width:650px){.plans{grid-template-columns:1fr}}
+
+/* NOIRA editorial presentation */
+:root{--bg:#f7eee2;--paper:#fff9f0;--ink:#0b2a1a;--muted:#3a5141;--line:#c8d0c2;--green:#08321e;--gold:#e32116;--soft:#e8eee3;--radius:8px}
+body{font-size:17px}.wrap{width:min(1280px,calc(100% - 72px))}
+.nav{padding-block:20px}.brand{font-size:1.5rem;letter-spacing:.06em}.brand img{width:44px;height:44px}.nav nav{font-weight:700;color:var(--ink)}
+h1,h2{font-family:"DM Sans",system-ui,sans-serif;font-weight:700;letter-spacing:-.065em;line-height:.95;text-transform:uppercase}h1 em,h2 em{font-style:normal;color:#e32116}
+h1{font-size:clamp(3.5rem,7.7vw,8.3rem)}h2{font-size:clamp(2.8rem,5.4vw,5.5rem)}
+.hero{background:linear-gradient(90deg,#f7eee2 0%,#f7eee2 48%,#0c221380 48%,#0c221338),url(bar.jpg) center/cover no-repeat;color:var(--ink);min-height:620px}
+.hero-content{grid-template-columns:minmax(0,1fr) minmax(280px,.75fr);gap:6vw}.hero .eyebrow{color:#38523d}.hero p:not(.eyebrow){color:var(--ink);font-size:clamp(1.15rem,1.8vw,1.5rem);font-weight:700}
+.button{border-radius:5px;min-height:50px}.gold{background:#e32116;border-color:#e32116;color:#fff}.glass{background:transparent;color:var(--ink);border-color:var(--ink)}.primary{background:var(--green);color:#fff}
+.scan-preview{transform:rotate(2deg);box-shadow:0 24px 60px #061b1170}.scan-result strong{color:#ff665b}
+#inventura{background:#0a3520;color:#fff9f0}#inventura p{color:#e1eadf}#inventura h2 em{color:#ff584b}#inventura .eyebrow{color:#a9c8ac}#inventura .product p{color:var(--muted)}#inventura .product{color:var(--ink)}
+.section{padding-block:clamp(65px,9vw,120px)}.section-heading>p,.split h2+p{font-size:1.1rem}
+#specifikace .steps{gap:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}#specifikace .steps article{border:0;border-right:1px solid var(--line);border-radius:0;background:transparent;padding:30px 25px}#specifikace .steps article:last-child{border-right:0}.steps h3{font-size:1.42rem;font-weight:700;letter-spacing:-.03em}
+#provoz{background:#e32116;color:white;width:100%;padding-inline:max(36px,calc((100% - 1280px)/2))}#provoz h2 em{color:#fff}#provoz p{color:#fff3e8}#provoz .steps article{background:#fff9f0;color:var(--ink);border:0}#provoz .steps article p{color:var(--muted)}#provoz .steps article .eyebrow{color:#ad251c}
+#tarify{background:#e8eee3}.plan{border-radius:3px}.plan-primary{background:var(--green)}.plan h3{font-size:1.45rem}.plan .price{font-family:"DM Sans",system-ui,sans-serif;font-weight:700;letter-spacing:-.055em}.footer{padding-block:30px}
+@media(max-width:740px){.wrap{width:calc(100% - 34px)}.hero{background:linear-gradient(180deg,#f7eee2 0%,#f7eee2 52%,#0c221350 52%),url(bar.jpg) center bottom/cover}.hero-content{grid-template-columns:1fr;gap:38px}.scan-preview{transform:none;justify-self:center}#specifikace .steps article{border-right:0;border-bottom:1px solid var(--line);padding:23px 0}#specifikace .steps article:last-child{border-bottom:0}#provoz{padding-inline:17px}.nav .button{font-size:.8rem;padding-inline:10px}}
